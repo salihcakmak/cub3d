@@ -49,7 +49,7 @@ void	test_my_strlen(void)
 		else
 			printf("%sTest Case %d FAILURE\n%s", RED, i + 1, RESET);
 		i++;
-		//sleep(1);
+		sleep(1);
 	}
 	printf("%s\nstrlen test ending...\n%s", YELLOW, RESET);
 }
@@ -70,7 +70,7 @@ void	test_ends_with(void)
 		else
 			printf("%sTest Case %d FAILURE\n%s", RED, i + 1, RESET);
 		i++;
-		//sleep(1);
+		sleep(1);
 	}
 	printf("%s\nends_with test ending...\n%s", YELLOW, RESET);
 }
