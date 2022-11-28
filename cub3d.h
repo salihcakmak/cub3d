@@ -24,7 +24,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include "mlx.h"
+# include "./minilibx/mlx.h"
 
 typedef unsigned int	t_bool;
 typedef unsigned int	t_uint;
