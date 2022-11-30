@@ -11,8 +11,8 @@ RM_OBJS		=	@echo "$(RED)$(OBJS) Deleted !$(RESET)"
 RM_PROGRAM	=	@echo "$(RED)Program and Library Deleted !$(RESET)"
 
 # FILES
-NAME		=	cub3D
-SRCS		=	main.c all.c tdd.c
+NAME		=	dev
+SRCS		=	main.c all.c tdd.c base_utils.c file_utils.c init_check_utils.c string_utils.c
 OBJS		=	$(SRCS:%.c=%.o)
 DEPS		=	cub3d.h
 
@@ -43,7 +43,7 @@ $(NAME)	:	$(OBJS)
 			$(SUCCESS)
 
 %.o		: %.c $(DEPS)
-			@printf "\033[0;30mGenerating cub3D objects... %-33.33s\r" $@
+			@printf "\033[0;35mGenerating cub3D objects... %-33.33s\r" $@
 			@${CC} ${CFLAGS} -c $< -o $@
 
 clean	:
