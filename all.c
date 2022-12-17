@@ -15,6 +15,7 @@
 
 void	check_game_status(t_cub3d *game)
 {
+
 	//TODO
 	// check all case, if code block is here. Game must be end.
 }
@@ -38,7 +39,6 @@ void	initialize_cub3d_object(t_cub3d *game)
     game->f_content = get_file_content(game);
     game->f_row_count = get_row_count(game);
     set_split_content(game);
-
 
     for (int i = 0; game->map[i]; ++i) {
         printf("%s\n", game->map[i]);

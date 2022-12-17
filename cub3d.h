@@ -28,7 +28,6 @@
 # include <math.h>
 # include "./minilibx/mlx.h"
 
-
 typedef unsigned int	t_bool;
 typedef unsigned int	t_uint;
 
@@ -40,12 +39,10 @@ typedef struct s_cub3d
     t_uint      f_row_count;
     char        **map;
 
-
 }				t_cub3d;
 
 
 void	initialize_cub3d_object(t_cub3d *game);
-
 
 //init check utils
 t_bool	ends_with(const	char *str, const char *suffix);
@@ -67,6 +64,7 @@ void	message_with_exit(t_cub3d *game, const char *message);
 void	clear_memory(t_cub3d *game);
 
 // TEST FUNCS
+
 void	test_all(void);
 void	test_my_strlen(void);
 void	test_ends_with(void);

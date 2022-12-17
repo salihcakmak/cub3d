@@ -16,15 +16,13 @@ int	main(int argc, char const *argv[])
 {
 	t_cub3d	game;
 
-	if (argc == 2)
-	{
-		check_file_exist(argv[1]);
-		if (!ends_with(argv[1], ".cub"))
-			message_with_exit(NULL, "Unsupported file extension!");
-		game.f_name = argv[1];
-		initialize_cub3d_object(&game);
-	}
-	else if (argc > 2)
-		message_with_exit(NULL, "To many arguments!");
+    if (argc != 2)
+        message_with_exit(NULL, "To many arguments!");
+
+    check_file_exist(argv[1]);
+    if (!ends_with(argv[1], ".cub"))
+        message_with_exit(NULL, "Unsupported file extension!");
+    game.f_name = argv[1];
+    initialize_cub3d_object(&game);
 	return (0);
 }
