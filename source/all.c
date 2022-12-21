@@ -10,17 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../header/cube.h"
 
-
-void	check_game_status(t_cub3d *game)
+void	check_game_status(t_data *game)
 {
 
 	//TODO
 	// check all case, if code block is here. Game must be end.
 }
 
-void    check_possible_character(t_cub3d *game)
+void    check_possible_character(t_data *game)
 {
     int i;
 
@@ -33,14 +32,3 @@ void    check_possible_character(t_cub3d *game)
     }
 }
 
-void	initialize_cub3d_object(t_cub3d *game)
-{
-    game->f_size = get_file_len(game);
-    game->f_content = get_file_content(game);
-    game->f_row_count = get_row_count(game);
-    set_split_content(game);
-
-    for (int i = 0; game->map[i]; ++i) {
-        printf("%s\n", game->map[i]);
-    }
-}

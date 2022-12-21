@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../header/cube.h"
 
 t_uint	my_strlen(const char *str)
 {
@@ -21,7 +21,7 @@ t_bool contains(char c, char *set)
     return (FALSE);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*substr(char const *s, unsigned int start, size_t len)
 {
     char	*substr;
     size_t	i;

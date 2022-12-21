@@ -10,19 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../header/cube.h"
+
 
 int	main(int argc, char const *argv[])
 {
-	t_cub3d	game;
+
+	t_data	game;
 
     if (argc != 2)
         message_with_exit(NULL, "To many arguments!");
-
-    check_file_exist(argv[1]);
     if (!ends_with(argv[1], ".cub"))
         message_with_exit(NULL, "Unsupported file extension!");
-    game.f_name = argv[1];
-    initialize_cub3d_object(&game);
+    check_file_exist(argv[1]);
+    initialize_data_object(&game, argv[1]);
+
 	return (0);
 }

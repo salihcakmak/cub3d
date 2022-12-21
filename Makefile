@@ -12,12 +12,12 @@ RM_PROGRAM	=	@echo "$(RED)Program and Library Deleted !$(RESET)"
 
 # FILES
 NAME		=	dev
-SRCS		=	main.c all.c tdd.c base_utils.c file_utils.c init_check_utils.c string_utils.c
+SRCS		=	source/main.c source/all.c source/utils_base.c source/utils_file.c source/utils_init_check.c source/utils_string.c source/init.c
 OBJS		=	$(SRCS:%.c=%.o)
-DEPS		=	cub3d.h
+DEPS		=	cube.h
 
 # COMMANDS & FLAGS
-CC			=	@cc
+CC			=	@gcc
 #CFLAGS		=	-Wall -Wextra -Werror
 MLXFLAGS	=	-framework OpenGL -framework AppKit
 OUTPUT		=	-o
@@ -27,19 +27,31 @@ RM			=	@rm -rf
 MLX_PATH	=	./minilibx
 MLX_LIB		=	libmlx.a
 MLX_H		=	mlx.h
-THIS		=	.
+THIS		=	source/
+
+
+#LIB
+LIBFT_PATH	=	./libft
+LIBFT_LIB	=	libft.a
+LIBFT_H		=	libft.h
+
 
 # RULES
-all		:	mlx $(NAME)
+all		:	libft mlx $(NAME)
+
+libft	:
+			make -C $(LIBFT_PATH)
+			@cp $(LIBFT_PATH)/$(LIBFT_LIB) $(THIS)
+			@cp $(LIBFT_PATH)/$(LIBFT_H) header/
 
 mlx		:
 			make -C $(MLX_PATH)
 			@cp $(MLX_PATH)/$(MLX_LIB) $(THIS)
-			@cp $(MLX_PATH)/$(MLX_H) $(THIS)
+			@cp $(MLX_PATH)/$(MLX_H) header/
 
 $(NAME)	:	$(OBJS)
 			@echo "\n"
-			$(CC) $(OBJS)  $(MLXFLAGS) $(OUTPUT) $(NAME) $(MLX_LIB)
+			$(CC) $(OBJS)  $(MLXFLAGS) $(OUTPUT) $(NAME) ./source/$(MLX_LIB) ./source/$(LIBFT_LIB)
 			$(SUCCESS)
 
 %.o		: %.c $(DEPS)
@@ -51,11 +63,12 @@ clean	:
 			$(RM_OBJS)
 
 fclean	:	clean
-			$(RM) $(NAME) $(MLX_LIB) $(MLX_H)
+			$(RM) $(NAME) ./source/$(MLX_LIB) header/$(MLX_H) ./source/$(LIBFT_LIB) header/$(LIBFT_H)
 			$(RM_PROGRAM)
 			cd $(MLX_PATH) && make clean
+			cd $(LIBFT_PATH) && make fclean
 
 re		:	fclean all
 
 
-.PHONY: all mlx re clean fclean
+.PHONY: all mlx re clean fclean libft

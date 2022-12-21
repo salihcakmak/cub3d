@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../header/cube.h"
 
 t_bool	ends_with(const	char *str, const char *suffix)
 {
@@ -20,6 +20,7 @@ t_bool	ends_with(const	char *str, const char *suffix)
     }
     return (1);
 }
+
 
 void	check_file_exist(const char *file)
 {
